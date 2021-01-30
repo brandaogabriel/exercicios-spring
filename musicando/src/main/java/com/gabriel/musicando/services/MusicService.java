@@ -3,8 +3,10 @@ package com.gabriel.musicando.services;
 import com.gabriel.musicando.dtos.MusicDTO;
 import com.gabriel.musicando.entities.Music;
 import com.gabriel.musicando.repositories.MusicRepository;
+import com.gabriel.musicando.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,13 +18,16 @@ public class MusicService {
 	@Autowired
 	private MusicRepository repository;
 
+	@Transactional(readOnly = true)
 	public List<MusicDTO> findAll() {
 		List<Music> musicList = this.repository.findAll();
 		return musicList.stream().map(MusicDTO::new).collect(Collectors.toList());
 	}
 
+	@Transactional(readOnly = true)
 	public MusicDTO findById(Long id) {
 		Optional<Music> obj = this.repository.findById(id);
-		return new MusicDTO(obj.get());
+		Music music = obj.orElseThrow(() -> new ResourceNotFoundException("Id not found " + id));
+		return new MusicDTO(music, music.getAuthors(), music.getInterpreters());
 	}
 }
