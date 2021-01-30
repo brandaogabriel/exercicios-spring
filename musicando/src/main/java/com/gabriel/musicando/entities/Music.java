@@ -16,12 +16,12 @@ public class Music {
 	private Instant releaseDate;
 
 	private String name;
-	private Long duration;
+	private Integer duration;
 
 	public Music() {
 	}
 
-	public Music(Instant releaseDate, String name, Long duration) {
+	public Music(Instant releaseDate, String name, Integer duration) {
 		this.releaseDate = releaseDate;
 		this.name = name;
 		this.duration = duration;
@@ -47,11 +47,11 @@ public class Music {
 		this.name = name;
 	}
 
-	public Long getDuration() {
+	public Integer getDuration() {
 		return duration;
 	}
 
-	public void setDuration(Long duration) {
+	public void setDuration(Integer duration) {
 		this.duration = duration;
 	}
 
