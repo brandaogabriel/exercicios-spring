@@ -11,3 +11,8 @@ INSERT INTO tb_music_interpreters (music_id, artist_id) VALUES (2, 1);
 INSERT INTO tb_music_interpreters (music_id, artist_id) VALUES (3, 1);
 INSERT INTO tb_music_interpreters (music_id, artist_id) VALUES (4, 1);
 INSERT INTO tb_music_interpreters (music_id, artist_id) VALUES (2, 2);
+
+INSERT INTO tb_music_authors (music_id, artist_id) VALUES (1, 1);
+INSERT INTO tb_music_authors (music_id, artist_id) VALUES (2, 1);
+INSERT INTO tb_music_authors (music_id, artist_id) VALUES (3, 1);
+INSERT INTO tb_music_authors (music_id, artist_id) VALUES (4, 1);

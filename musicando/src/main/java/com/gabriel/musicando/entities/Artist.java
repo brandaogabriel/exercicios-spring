@@ -25,6 +25,9 @@ public class Artist implements Serializable {
 	@ManyToMany(mappedBy = "interpreters")
 	private Set<Music> interpretedMusics = new HashSet<>();
 
+	@ManyToMany(mappedBy = "authors")
+	private Set<Music> musicsAsAuthor = new HashSet<>();
+
 	private String name;
 	private String nationality;
 
@@ -59,6 +62,10 @@ public class Artist implements Serializable {
 
 	public Set<Music> getInterpretedMusics() {
 		return interpretedMusics;
+	}
+
+	public Set<Music> getMusicsAsAuthor() {
+		return musicsAsAuthor;
 	}
 
 	@PrePersist
