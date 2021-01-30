@@ -30,4 +30,22 @@ public class ArtistService {
 		Artist artist = obj.orElseThrow(() -> new ResourceNotFoundException("Artist not found"));
 		return new ArtistDTO(artist);
 	}
+
+	@Transactional
+	public ArtistDTO insert(ArtistDTO artistDTO) {
+		Artist artist = new Artist(artistDTO.getName(), artistDTO.getNationality());
+		artist = this.repository.save(artist);
+		return new ArtistDTO(artist);
+	}
+
+	@Transactional
+	public ArtistDTO update(Long id, ArtistDTO artistDTO) {
+		Artist artist = this.repository.getOne(id);
+		artist.setName(artistDTO.getName());
+		return new ArtistDTO(artist);
+	}
+
+	public void delete(Long id) {
+		this.repository.deleteById(id);
+	}
 }

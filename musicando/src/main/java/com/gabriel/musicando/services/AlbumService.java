@@ -28,6 +28,6 @@ public class AlbumService {
 	public AlbumDTO findById(Long id) {
 		Optional<Album> obj = this.repository.findById(id);
 		Album album = obj.orElseThrow(() -> new ResourceNotFoundException("Album not found"));
-		return new AlbumDTO(album);
+		return new AlbumDTO(album, album.getParticipants(), album.getMusics());
 	}
 }

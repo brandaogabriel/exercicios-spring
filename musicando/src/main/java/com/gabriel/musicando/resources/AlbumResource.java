@@ -1,9 +1,7 @@
 package com.gabriel.musicando.resources;
 
 import com.gabriel.musicando.dtos.AlbumDTO;
-import com.gabriel.musicando.dtos.ArtistDTO;
 import com.gabriel.musicando.services.AlbumService;
-import com.gabriel.musicando.services.ArtistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
