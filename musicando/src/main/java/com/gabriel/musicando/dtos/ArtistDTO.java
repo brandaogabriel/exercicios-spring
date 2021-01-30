@@ -3,7 +3,6 @@ package com.gabriel.musicando.dtos;
 import com.gabriel.musicando.entities.Artist;
 
 import java.io.Serializable;
-import java.time.Instant;
 
 public class ArtistDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
