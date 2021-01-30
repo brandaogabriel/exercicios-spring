@@ -27,7 +27,7 @@ public class MusicService {
 	@Transactional(readOnly = true)
 	public MusicDTO findById(Long id) {
 		Optional<Music> obj = this.repository.findById(id);
-		Music music = obj.orElseThrow(() -> new ResourceNotFoundException("Id not found " + id));
+		Music music = obj.orElseThrow(() -> new ResourceNotFoundException("Music not found"));
 		return new MusicDTO(music, music.getAuthors(), music.getInterpreters());
 	}
 }
