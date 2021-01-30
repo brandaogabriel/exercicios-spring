@@ -29,6 +29,9 @@ public class Music implements Serializable {
 	  inverseJoinColumns = @JoinColumn(name = "artist_id"))
 	private Set<Artist> authors = new HashSet<>();
 
+	@ManyToMany(mappedBy = "musics")
+	private Set<Album> albums = new HashSet<>();
+
 	private String name;
 	private Integer duration;
 
@@ -75,6 +78,10 @@ public class Music implements Serializable {
 
 	public Set<Artist> getAuthors() {
 		return authors;
+	}
+
+	public Set<Album> getAlbums() {
+		return albums;
 	}
 
 	@Override
