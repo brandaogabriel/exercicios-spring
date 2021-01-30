@@ -3,7 +3,9 @@ package com.gabriel.musicando.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_artist")
@@ -19,6 +21,9 @@ public class Artist implements Serializable {
 
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant updatedAt;
+
+	@ManyToMany(mappedBy = "interpreters")
+	private Set<Music> interpretedMusics = new HashSet<>();
 
 	private String name;
 	private String nationality;
@@ -50,6 +55,10 @@ public class Artist implements Serializable {
 
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
+	}
+
+	public Set<Music> getInterpretedMusics() {
+		return interpretedMusics;
 	}
 
 	@PrePersist

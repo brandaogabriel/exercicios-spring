@@ -3,7 +3,9 @@ package com.gabriel.musicando.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_music")
@@ -16,6 +18,11 @@ public class Music implements Serializable {
 
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant releaseDate;
+
+	@ManyToMany
+	@JoinTable(name = "tb_music_interpreters", joinColumns = @JoinColumn(name = "music_id"),
+	  inverseJoinColumns = @JoinColumn(name = "artist_id"))
+	private Set<Artist> interpreters = new HashSet<>();
 
 	private String name;
 	private Integer duration;
@@ -55,6 +62,10 @@ public class Music implements Serializable {
 
 	public void setDuration(Integer duration) {
 		this.duration = duration;
+	}
+
+	public Set<Artist> getInterpreters() {
+		return interpreters;
 	}
 
 	@Override
