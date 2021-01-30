@@ -3,7 +3,9 @@ package com.gabriel.musicando.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_album")
@@ -13,6 +15,11 @@ public class Album implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@ManyToMany
+	@JoinTable(name = "tb_album_participants", joinColumns = @JoinColumn(name = "album_id"),
+	  inverseJoinColumns = @JoinColumn(name = "artist_id"))
+	private Set<Artist> participants = new HashSet<>();
 
 	private String name;
 	private Instant releaseDate;
@@ -53,6 +60,10 @@ public class Album implements Serializable {
 
 	public void setDuration(Integer duration) {
 		this.duration = duration;
+	}
+
+	public Set<Artist> getParticipants() {
+		return participants;
 	}
 
 	@Override
