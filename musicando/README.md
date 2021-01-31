@@ -15,6 +15,7 @@ Acesso ao banco de dados **H2**: `http://localhost:8080/h2-console`.
 
 ## 🗺️ Diagrama de Classes - Modelo de Domínio
 ![diagrama](images/diagrama.png)
+
 **Obs**: O diagrama está em português para maior entendimento, porém o código está em inglês.
 
 ## 📌 Endpoints
