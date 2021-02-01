@@ -33,8 +33,8 @@ Os seguintes endpoints estão configurados:
   através do seu Id.
 - `/musics/{id}` - DELETE - Remove uma música a partir do seu Id.
 - `/musics` - POST - Cria uma música.
-- `/musics` - PUT - Atualiza as informações de uma música (Nome, data de lançamento, duração, 
-  autores e participantes).
+- `/musics/{id}` - PUT - Atualiza as informações de uma música (Nome, data de lançamento, duração, 
+  autores e participantes) a partir de seu Id.
 
 **Exemplo de dados para criar uma Música (JSON)**
 
@@ -84,7 +84,7 @@ Os seguintes endpoints estão configurados:
 - `/artists/{id}` - GET - Exibe um artista específico através do seu Id.
 - `/artists/{id}` - DELETE - Remove um artista a partir do seu Id.
 - `/artists` - POST - Cria um artista.
-- `/artists` - PUT - Atualiza as informações de um artista (Nome).
+- `/artists/{id}` - PUT - Atualiza as informações de um artista (Nome) a partir de seu Id.
 
 **Exemplo de dados para criar um Artista (JSON)**
 
